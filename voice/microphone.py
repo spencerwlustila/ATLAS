@@ -8,7 +8,7 @@ def record_audio():
     channels = 1
 
     # Record audio
-    print("ATLAS: Recording...")
+    
 
     recording = sd.rec(
         frames=sample_rate * duration,
@@ -19,8 +19,5 @@ def record_audio():
     # Wait until recording finishes
     sd.wait()
 
-    # Confirm recording
-    print("ATLAS: Recording complete!")
-    print(recording.shape)
 
     return recording

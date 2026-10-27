@@ -17,7 +17,7 @@ client = genai.Client(api_key = API_KEY)
 
 # ATLAS CONVERSATION LOOP
 
-print("ATLAS IS ONLINE...\n")
+speak("ATLAS IS ONLINE...\n")
 
 conversation = []
 
@@ -25,7 +25,7 @@ user_message = transcribe_audio()
 
 while user_message.lower().strip().strip("!?.").replace(" ", "") != "shutdown":
     if not user_message.strip():
-        print("ATLAS: No speech detected.")
+        speak("No speech detected.")
         user_message = transcribe_audio()
         continue
 
@@ -56,16 +56,15 @@ while user_message.lower().strip().strip("!?.").replace(" ", "") != "shutdown":
         conversation_saved = True
 
         # Display ATLAS's response
-        print("\nATLAS:", response.text, "\n")
         speak(response.text)
 
     except Exception:
         if conversation_saved == False:
             conversation.pop()
 
-        print("ATLAS: Something went wrong. Please try again.")
+        speak("Something went wrong. Please try again.")
 
     # Get the next message
     user_message = transcribe_audio()
 
-print("ATLAS IS SHUTTING DOWN...")
+speak("ATLAS IS SHUTTING DOWN...")

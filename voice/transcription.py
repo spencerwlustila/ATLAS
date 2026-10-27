@@ -6,7 +6,7 @@ model = WhisperModel("base.en")
 
 
 def transcribe_audio():
-    print("ATLAS: Speech recognition model loaded.")
+
 
     # Record audio from microphone
     audio = record_audio()
@@ -20,13 +20,13 @@ def transcribe_audio():
     # Store the complete transcription
     transcription = ""
 
-    print("ATLAS: Starting transcription")
+
 
     # Combine all recognized speech segments
     for w in segments:
         transcription += w.text
 
-    print("ATLAS: Ending transcription")
+
 
     return transcription
 
